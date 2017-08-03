@@ -17,23 +17,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     Context context;
-    RecyclerView recyclerView;
-    RelativeLayout relativeLayout;
-    RecyclerView.Adapter recyclerViewAdapter;
-    RecyclerView.LayoutManager recylerViewLayoutManager;
-    String[] subjects =
-            {
-                    "ANDROID",
-                    "PHP",
-                    "BLOGGER",
-                    "WORDPRESS",
-                    "JOOMLA",
-                    "ASP.NET",
-                    "JAVA",
-                    "C++",
-                    "MATHS",
-                    "HINDI",
-                    "ENGLISH"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
@@ -46,21 +29,17 @@ public class MainActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick (AdapterView < ? > parent, View v,
             int position, long id){
-                Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
+                        switch (position) {
+                            case 0:
+                                Intent intent = new Intent(getBaseContext(), RecyclerActivity.class);
+                                startActivity(intent);
+                                break;
+                            default:
+                                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                        }
             }
         });
                 context = getApplicationContext();
-                relativeLayout = (RelativeLayout) findViewById(R.id.relativelayout1);
-                recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
-
-                recylerViewLayoutManager = new LinearLayoutManager(context);
-
-                recyclerView.setLayoutManager(recylerViewLayoutManager);
-
-                recyclerViewAdapter = new RecyclerViewAdapter(context, subjects);
-
-                recyclerView.setAdapter(recyclerViewAdapter);
 
     }
     public void sendMessage(View view) {

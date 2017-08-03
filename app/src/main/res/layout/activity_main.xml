@@ -9,18 +9,6 @@
     tools:layout_editor_absoluteX="0dp"
     android:id="@+id/relativelayout1">
 
-    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="90dp"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
-        />
-
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
@@ -31,14 +19,13 @@
         android:hint="@string/edit_message"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
         android:onClick="sendMessage"
         android:text="@string/button_send"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText"
@@ -46,10 +33,20 @@
         app:layout_constraintLeft_toRightOf="@+id/editText"
         app:layout_constraintRight_toLeftOf="parent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview1"
-        android:scrollbars="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        />
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:columnWidth="0dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:layout_marginStart="16dp" />
+
 </android.support.constraint.ConstraintLayout>
